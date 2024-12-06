@@ -1,3 +1,10 @@
 out
 dist
-node_modules
+
+# Keep the @quantubmlack component in
+node_modules/*
+!node_modules/@quantumblack/
+!node_modules/@quantumblack/**
+
+# Ingore python .venv
+.venv/

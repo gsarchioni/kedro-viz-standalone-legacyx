@@ -1,0 +1,167 @@
+{
+  "edges": [
+    {
+      "source": "CBACT02C",
+      "target": "0000-CARDFILE-OPEN"
+    },
+    {
+      "source": "CBACT02C",
+      "target": "1000-CARDFILE-GET-NEXT"
+    },
+    {
+      "source": "CBACT02C",
+      "target": "9000-CARDFILE-CLOSE"
+    },
+    {
+      "source": "1000-CARDFILE-GET-NEXT",
+      "target": "9910-DISPLAY-IO-STATUS"
+    },
+    {
+      "source": "1000-CARDFILE-GET-NEXT",
+      "target": "9999-ABEND-PROGRAM"
+    },
+    {
+      "source": "0000-CARDFILE-OPEN",
+      "target": "9910-DISPLAY-IO-STATUS"
+    },
+    {
+      "source": "0000-CARDFILE-OPEN",
+      "target": "9999-ABEND-PROGRAM"
+    },
+    {
+      "source": "9000-CARDFILE-CLOSE",
+      "target": "9910-DISPLAY-IO-STATUS"
+    },
+    {
+      "source": "9000-CARDFILE-CLOSE",
+      "target": "9999-ABEND-PROGRAM"
+    }
+  ],
+  "modular_pipelines": {
+    "__root__": {
+      "children": [
+        {
+          "id": "CBACT02C",
+          "type": "task"
+        },
+        {
+          "id": "1000-CARDFILE-GET-NEXT",
+          "type": "task"
+        },
+        {
+          "id": "0000-CARDFILE-OPEN",
+          "type": "task"
+        },
+        {
+          "id": "9000-CARDFILE-CLOSE",
+          "type": "task"
+        },
+        {
+          "id": "9999-ABEND-PROGRAM",
+          "type": "task"
+        },
+        {
+          "id": "9910-DISPLAY-IO-STATUS",
+          "type": "task"
+        }
+      ],
+      "id": "__root__",
+      "inputs": [],
+      "name": "__root__",
+      "outputs": []
+    }
+  },
+  "nodes": [
+    {
+      "documentation_url": "host/CBACT02C/#CBACT02C",
+      "id": "CBACT02C",
+      "name": "CBACT02C",
+      "overview": "The analyzed COBOL component reads and displays records from a card file.  It opens the card file, reads and displays each record sequentially until the end of the file is reached, and then closes the card file.  The program includes error handling for file operations, displaying specific messages for open, read, and close errors.  A severe error will cause the program to terminate abnormally.",
+      "pipelines": [
+        "CBACT02C"
+      ],
+      "tags": [
+        "CBACT02C"
+      ],
+      "type": "task"
+    },
+    {
+      "documentation_url": "host/CBACT02C/#1000-CARDFILE-GET-NEXT",
+      "id": "1000-CARDFILE-GET-NEXT",
+      "name": "1000-CARDFILE-GET-NEXT",
+      "overview": "The analyzed COBOL component reads card records from a file.  The program sets a result code based on the file read status. A successful read results in a result code of 0. A status of '10' results in a code of 16, and any other status results in a code of 12. If the read is not successful and end-of-file is not reached, an error message is displayed, the I/O status is recorded, and an abend program is executed.",
+      "pipelines": [
+        "CBACT02C"
+      ],
+      "tags": [
+        "CBACT02C"
+      ],
+      "type": "task"
+    },
+    {
+      "documentation_url": "host/CBACT02C/#0000-CARDFILE-OPEN",
+      "id": "0000-CARDFILE-OPEN",
+      "name": "0000-CARDFILE-OPEN",
+      "overview": "The analyzed COBOL component opens a card file.  The procedure initializes a result variable, attempts to open the card file, and checks for errors. If the file opens successfully, the result variable is updated to indicate success. If the file fails to open, the result variable is updated to reflect the failure, an error message is displayed, and the program terminates abnormally.",
+      "pipelines": [
+        "CBACT02C"
+      ],
+      "tags": [
+        "CBACT02C"
+      ],
+      "type": "task"
+    },
+    {
+      "documentation_url": "host/CBACT02C/#9000-CARDFILE-CLOSE",
+      "id": "9000-CARDFILE-CLOSE",
+      "name": "9000-CARDFILE-CLOSE",
+      "overview": "The analyzed COBOL component closes a card file (likely a VSAM file based on the context). It checks for a successful file closure. If the closure fails, an error message is displayed, the file status is recorded, and the program terminates abnormally.",
+      "pipelines": [
+        "CBACT02C"
+      ],
+      "tags": [
+        "CBACT02C"
+      ],
+      "type": "task"
+    },
+    {
+      "documentation_url": "host/CBACT02C/#9999-ABEND-PROGRAM",
+      "id": "9999-ABEND-PROGRAM",
+      "name": "9999-ABEND-PROGRAM",
+      "overview": "This procedure abruptly terminates the program's execution.",
+      "pipelines": [
+        "CBACT02C"
+      ],
+      "tags": [
+        "CBACT02C"
+      ],
+      "type": "task"
+    },
+    {
+      "documentation_url": "host/CBACT02C/#9910-DISPLAY-IO-STATUS",
+      "id": "9910-DISPLAY-IO-STATUS",
+      "name": "9910-DISPLAY-IO-STATUS",
+      "overview": "This procedure displays the file status. It handles the IO-STATUS and formats it for display.",
+      "pipelines": [
+        "CBACT02C"
+      ],
+      "tags": [
+        "CBACT02C"
+      ],
+      "type": "task"
+    }
+  ],
+  "pipelines": [
+    {
+      "id": "CBACT02C",
+      "name": "CBACT02C"
+    }
+  ],
+  "selected_pipeline": "CBACT02C",
+  "tags": [
+    {
+      "id": "CBACT02C",
+      "name": "CBACT02C"
+    }
+  ]
+}
